@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+
+    <input type="text" placeholder="enter your play" id="myImput">;
+    <button type="button" onclick="getInputValue();">Get Value</button>;
+
+
+    <script>
+    let comp = ["rock", "paper", "scissors"];
+    let winner; 
+    let Player;
+    let cs;
+
+   
+
+    function computerPlay() {
+        let play = Math.floor(Math.random()*3);
+        cs= comp[play];
+        return cs;
+    }
+
+    function roundPlay (ps , coms) {
+        
+        if (ps == comp[0] && coms == comp[2]){
+            console.log('ganaste ' + ps + ' vence ' + cs);
+        } else if(ps == comp[0] && coms == comp[1]){
+            console.log(' perdiste ' + ps + ' pierde ' + cs);
+        } 
+        else if(ps == comp[1] && coms == comp[0]){
+            console.log('ganaste ' + ps + ' vence ' + cs);
+        } else if (ps == comp[1] && coms == comp[2]){
+            console.log('perdiste ' + ps + ' pierde ' + cs);
+        } else if(ps == comp[2] && coms == comp[1]){
+            console.log('ganaste '  + ps + ' vence ' + cs);
+        } else if (ps == comp[2] && coms == comp[0]){
+            console.log('perdiste ' + ps + ' pierde ' + cs);
+        } else if (ps == coms) {
+            console.log('empate ' + ps + ' es igual a ' + cs);
+        }
+    }
+    
+    function getInputValue(){
+        Player = document.getElementById("myImput").value.toLowerCase();
+        
+        if (Player != comp[0] && Player != comp[1] && Player != comp[2]) {
+            alert('please enter a valid play');
+        }
+
+        roundPlay(Player,computerPlay());
+
+    }
+
+    
+    
+    </script>
+    
+</body>
+
+
+</html>
